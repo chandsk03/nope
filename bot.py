@@ -17,8 +17,6 @@ from telegram.ext import (
 )
 from telethon.sync import TelegramClient
 from telethon.sessions import StringSession
-from dotenv import load_dotenv
-load_dotenv()
 
 # Configure logging with rotation
 logger = logging.getLogger(__name__)
@@ -339,7 +337,11 @@ def main():
         app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
         app.add_error_handler(error_handler)
 
-        # Schedule jobs
+        # Schedule jobs if JobQueue is available
+        if app.job_queue is None:
+            logger.error("JobQueue is not available. Install python-telegram-bot[job-queue] to enable scheduled tasks.")
+            raise RuntimeError("JobQueue is required but not available.")
+        
         app.job_queue.run_repeating(reset_rate_limits, interval=60, first=60)
         app.job_queue.run_daily(send_promo, time=time(hour=12, minute=0, second=0))
 
