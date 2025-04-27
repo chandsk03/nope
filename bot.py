@@ -26,12 +26,12 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Configuration
-API_ID = "YOUR_API_ID"  # Replace with your API ID
-API_HASH = "YOUR_API_HASH"  # Replace with your API Hash
-BOT_TOKEN = "YOUR_BOT_TOKEN"  # Replace with your Bot Token
-SESSION_FILE = "session.json"
-ADMIN_ID = YOUR_ADMIN_ID  # Replace with your Telegram user ID
-SESSION_USERNAME = "@YourSessionAccount"  # Replace with your session account username
+API_ID = "29637547"  # Replace with your API ID
+API_HASH = "13e303a526522f741c0680cfc8cd9c00"  # Replace with your API Hash
+BOT_TOKEN = "7552161237:AAGnwooPr-CUI3UuL8DNV62e2DJSioYnkIw"  # Replace with your Bot Token
+SESSION_FILE = "+213663915683.session"
+ADMIN_ID = 7303763913  # Replace with your Telegram user ID
+SESSION_USERNAME = "@none_seller"  # Replace with your session account username
 
 # Database setup
 def init_db():
